@@ -1,4 +1,4 @@
-@section('title', 'Tambah Data User')
+@section('title', 'Tambah Data Author')
 
 <x-app-layout>
 
@@ -24,29 +24,16 @@
                         <x-input.input-error :messages="$errors->get('name')" class="mt-2" />
                     </div>
                     <div class="mt-4">
-                        <x-input.input-label for="email" :value="__('Email')" />
-                        <x-input.text-input id="email" class="mt-1 w-full" type="email" name="email"
-                            :value="old('email')" required autofocus autocomplete="email" />
-                        <x-input.input-error :messages="$errors->get('email')" class="mt-2" />
+                        <x-input.input-label for="username" :value="__('Username')" />
+                        <x-input.text-input id="username" class="mt-1 w-full" type="text" name="username"
+                            :value="old('username')" required autofocus autocomplete="username" />
+                        <x-input.input-error :messages="$errors->get('username')" class="mt-2" />
                     </div>
                     <div class="mt-4">
                         <x-input.input-label for="password" :value="__('Password')" />
                         <x-input.text-input id="password" class="mt-1 w-full" type="password" name="password"
                             :value="old('password')" required autofocus autocomplete="password" />
                         <x-input.input-error :messages="$errors->get('password')" class="mt-2" />
-                    </div>
-                    <div class="mt-4">
-                        <x-input.input-label for="role" :value="__('Role')" />
-                        <x-input.select-input id="role" class="select2 mt-1 w-full" name="role" required
-                            autofocus autocomplete="role">
-                            <option value="" disabled selected>Pilih Role</option>
-                            @foreach ($roles as $role)
-                                <option value="{{ $role->name }}"
-                                    {{ old('role') == $role->name ? ' selected' : ' ' }}>
-                                    {{ $role->name }}</option>
-                            @endforeach
-                        </x-input.select-input>
-                        <x-input.input-error :messages="$errors->get('role')" class="mt-2" />
                     </div>
 
                     <div class="col-span-2">

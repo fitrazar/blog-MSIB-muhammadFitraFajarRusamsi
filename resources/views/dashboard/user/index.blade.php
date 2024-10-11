@@ -1,4 +1,4 @@
-@section('title', 'Data User')
+@section('title', 'Data Author')
 
 <x-app-layout>
 
@@ -30,10 +30,7 @@
                                     Nama
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Email
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Role
+                                    Username
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     Action
@@ -78,15 +75,8 @@
                             name: 'name'
                         },
                         {
-                            data: 'email',
-                            name: 'email'
-                        },
-                        {
-                            data: null,
-                            name: null,
-                            render: function(data, type, full, meta) {
-                                return data.roles[0].name
-                            }
+                            data: 'username',
+                            name: 'username'
                         },
                         {
                             data: 'action',
@@ -95,10 +85,13 @@
                             searchable: false,
                             render: function(data, type, full, meta) {
                                 return `
-                                <a href="{{ url('/dashboard/user/${full.id}/edit') }}">
+                                <a href="{{ url('/dashboard/user/${full.username}/edit') }}">
                                     <x-button.info-button type="button" class="btn-sm text-white"><i class="fa-regular fa-pen-to-square"></i>Edit</x-button.info-button>
                                 </a>
-                                <x-form action="{{ url('/dashboard/user/${full.id}') }}" style="display: inline;">
+                                <a href="{{ url('/dashboard/user/${full.username}') }}">
+                                    <x-button.success-button type="button" class="btn-sm text-white"><i class="fa-solid fa-eye"></i>Lihat</x-button.success-button>
+                                </a>
+                                <x-form action="{{ url('/dashboard/user/${full.username}') }}" style="display: inline;">
                                     @csrf
                                     @method('DELETE')
                                     <x-button.danger-button type="submit" class="btn-sm text-white" onclick="return confirm('Are you sure?')"><i class="fa-regular fa-trash-can"></i>Hapus</x-button.danger-button>

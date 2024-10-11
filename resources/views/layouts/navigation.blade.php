@@ -6,21 +6,22 @@
     <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1">
             @auth
-                <li><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
                 <li><a href="{{ route('home') }}">Beranda</a></li>
+                <li><a href="{{ route('post.index') }}">Artikel</a></li>
+                <li><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
                 <li>
                     <details>
                         <summary>Master Data</summary>
                         <ul class="p-2 z-10">
                             <li><a href="{{ route('dashboard.category.index') }}">Kategori</a></li>
                             <li><a href="{{ route('dashboard.post.index') }}">Postingan</a></li>
+                            <li><a href="{{ route('dashboard.user.index') }}">Author</a></li>
                         </ul>
                     </details>
                 </li>
             @else
                 <li><a href="{{ route('home') }}">Beranda</a></li>
-                {{-- <li><a href="{{ route('post.index') }}">Artikel</a></li>
-                <li><a href="{{ route('workshop.index') }}">Pelatihan</a></li> --}}
+                <li><a href="{{ route('post.index') }}">Artikel</a></li>
             @endauth
         </ul>
     </div>

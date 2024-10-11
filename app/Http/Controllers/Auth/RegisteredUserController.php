@@ -38,7 +38,7 @@ class RegisteredUserController extends Controller
         $fileFilename = NULL;
         if ($request->hasFile('photo')) {
             $fileFilename = time() . '.' . $request->file('photo')->getClientOriginalExtension();
-            $request->file('photo')->storeAs('photo', $fileFilename);
+            $request->file('photo')->storeAs('photo/' . $request->name, $fileFilename);
         }
 
         $user = User::create([
