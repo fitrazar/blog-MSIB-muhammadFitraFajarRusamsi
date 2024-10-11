@@ -20,7 +20,8 @@ You need to have PHP version **8.2** or above. Node.js version **20.0** or above
 4. Create database
 5. Copy `.env.example` into `.env` file and adjust parameters (FILESYSTEM_DISK = public)
 6. Run `php artisan migrate --seed`
-7. Run `php artisan serve` to start the project at http://127.0.0.1:8000
+7. Run `php artisan key:generate`
+8. Run `php artisan serve` to start the project at http://127.0.0.1:8000
 
 Username : admin
 <br>
