@@ -18,10 +18,8 @@
                     <input type="hidden" name="oldImage" value="{{ $post->image }}">
                     <div class="mt-4">
                         @if ($post->image)
-                            <div class="avatar">
-                                <div class="w-32 rounded-xl">
-                                    <img src="{{ asset('storage/post/' . $post->image) }}" />
-                                </div>
+                            <div class="h-auto max-w-lg mx-auto rounded-xl">
+                                <img src="{{ asset('storage/post/' . $post->image) }}" />
                             </div>
                         @endif
                         <img class="imgPreview h-auto max-w-lg mx-auto hidden" alt="image">
@@ -64,25 +62,6 @@
                         <x-input.input-error :messages="$errors->get('body')" class="mt-2" />
                     </div>
 
-                    <div class="mt-4">
-                        <x-input.input-label for="meta_title" :value="__('Meta Title')" />
-                        <x-input.text-input id="meta_title" class="mt-1 w-full" type="text" name="meta_title"
-                            :value="old('meta_title', $post->meta_title)" required autofocus autocomplete="meta_title" />
-                        <x-input.input-error :messages="$errors->get('meta_title')" class="mt-2" />
-                    </div>
-                    <div class="mt-4">
-                        <x-input.input-label for="meta_keyword" :value="__('Meta Keyword')" />
-                        <x-input.text-area id="meta_keyword" class="mt-1 w-full" type="text" name="meta_keyword"
-                            :value="old('meta_keyword', $post->meta_keyword)" required autofocus autocomplete="meta_keyword" />
-                        <x-input.input-error :messages="$errors->get('meta_keyword')" class="mt-2" />
-                    </div>
-                    <div class="mt-4">
-                        <x-input.input-label for="meta_description" :value="__('Meta Description')" />
-                        <x-input.text-area id="meta_description" class="mt-1 w-full" type="text"
-                            name="meta_description" :value="old('meta_description', $post->meta_description)" required autofocus
-                            autocomplete="meta_description" />
-                        <x-input.input-error :messages="$errors->get('meta_description')" class="mt-2" />
-                    </div>
 
                     <div class="mt-4 col-span-2">
                         <x-input.input-label for="status" class="label cursor-pointer mr-6">

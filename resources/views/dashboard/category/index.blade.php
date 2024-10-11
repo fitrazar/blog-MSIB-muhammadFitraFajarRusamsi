@@ -85,10 +85,13 @@
                                 <a href="{{ url('/dashboard/category/${full.slug}/edit') }}">
                                     <x-button.info-button type="button" class="btn-sm text-white"><i class="fa-regular fa-pen-to-square"></i>Edit</x-button.info-button>
                                 </a>
+                                <a href="{{ url('/dashboard/category/${full.slug}') }}">
+                                    <x-button.success-button type="button" class="btn-sm text-white"><i class="fa-solid fa-eye"></i>Lihat</x-button.success-button>
+                                </a>
                                 <x-form action="{{ url('/dashboard/category/${full.slug}') }}" style="display: inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <x-button.danger-button type="submit" class="btn-sm text-white" onclick="return confirm('Are you sure?')"><i class="fa-regular fa-trash-can"></i>Hapus</x-button.danger-button>
+                                    <x-button.danger-button type="submit" class="btn-sm text-white" onclick="return confirm('Kamu yakin?')"><i class="fa-regular fa-trash-can"></i>Hapus</x-button.danger-button>
                                 </x-form>
                             `;
                             }

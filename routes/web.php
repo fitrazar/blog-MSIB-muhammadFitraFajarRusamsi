@@ -7,8 +7,11 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\User\PostController as UserPostController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/blog', [UserPostController::class, 'index'])->name('post.index');
+Route::get('/{post}', [UserPostController::class, 'show'])->name('post.show');
 
 Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
