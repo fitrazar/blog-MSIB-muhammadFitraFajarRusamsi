@@ -41,16 +41,16 @@
                         {!! $post->body !!}
 
                     </x-card.card-default>
-                    @if ($post->user->profile && $post->user->profile->description)
+                    @if ($post->user->description)
                         <x-card.card-default class="static mt-5" title="Tentang Penulis">
                             <div class="flex w-full flex-col">
                                 <div class="flex justify-center">
                                     <div class="avatar">
                                         <div
                                             class="ring-base-200 ring-offset-base-100 w-24 rounded-full ring ring-offset-2">
-                                            @if ($post->user->profile->photo)
+                                            @if ($post->user->photo)
                                                 <img
-                                                    src="{{ asset('storage/photo/' . $post->user->name . '/' . $post->user->profile->photo) }}" />
+                                                    src="{{ asset('storage/photo/' . $post->user->name . '/' . $post->user->photo) }}" />
                                             @else
                                                 <img src="{{ asset('assets/images/male.png') }}" />
                                             @endif
@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="divider"></div>
                                 <div>
-                                    <p class="text-justify">{{ $post->user->profile->description }}</p>
+                                    <p class="text-justify">{{ $post->user->description }}</p>
                                 </div>
                             </div>
                         </x-card.card-default>
