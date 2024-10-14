@@ -70,7 +70,7 @@
                     <x-card.card-default class="static mt-5" title="Artikel Lain">
                         <div class="flex w-full flex-col">
                             @foreach ($posts as $post)
-                                <a href="{{ url('/post/' . $post->slug) }}" class="flex justify-start items-center">
+                                <a href="{{ url('/' . $post->slug) }}" class="flex justify-start items-center">
                                     <div class="avatar mr-4">
                                         <div class="w-16 rounded">
                                             <img class="object-cover" src="{{ asset('storage/post/' . $post->image) }}"
@@ -83,7 +83,7 @@
                                 <div class="divider"></div>
                             @endforeach
                         </div>
-                        <a href="{{ url('/post') }}" class="mt-3">
+                        <a href="{{ url('/blog') }}" class="mt-3">
                             <x-button.primary-button type="button" class="btn-md text-base-100 w-full">Lihat
                                 Semua</x-button.primary-button>
                         </a>
