@@ -96,8 +96,23 @@
 </div>
 <div class="btm-nav lg:hidden shadow-sm z-10">
 
-    <a href="#" class="{{ Request::is('siswa/report*') ? 'active' : '' }}">
-        <i class="fa-solid fa-id-card-clip" class="h-5 w-5"></i>
-        <span class="btm-nav-label text-xs">Profile</span>
-    </a>
+    @auth
+        <a href="{{ route('dashboard.index') }}" class="{{ Request::is('dashboard') ? 'active' : '' }}">
+            <i class="fa-solid fa-id-card-clip" class="h-5 w-5"></i>
+            <span class="btm-nav-label text-xs">Dashboard</span>
+        </a>
+        <a href="{{ route('dashboard.profile.edit') }}" class="{{ Request::is('dashboard/profile') ? 'active' : '' }}">
+            <i class="fa-solid fa-id-card-clip" class="h-5 w-5"></i>
+            <span class="btm-nav-label text-xs">Profile</span>
+        </a>
+    @else
+        <a href="{{ route('home') }}" class="{{ Request::is('*') ? 'active' : '' }}">
+            <i class="fa-solid fa-id-card-clip" class="h-5 w-5"></i>
+            <span class="btm-nav-label text-xs">Beranda</span>
+        </a>
+        <a href="{{ route('post.index') }}" class="{{ Request::is('post') ? 'active' : '' }}">
+            <i class="fa-solid fa-id-card-clip" class="h-5 w-5"></i>
+            <span class="btm-nav-label text-xs">Artikel</span>
+        </a>
+    @endauth
 </div>
